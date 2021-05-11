@@ -100,7 +100,6 @@ public class Product {
     public void setOrderDetails(List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
     }
-
     public double getPrice() {
         return price;
     }

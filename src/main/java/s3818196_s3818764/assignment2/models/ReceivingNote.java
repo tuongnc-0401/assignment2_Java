@@ -17,4 +17,39 @@ public class ReceivingNote {
     private Staff staff;
     @OneToMany(mappedBy = "receivingNote", cascade = CascadeType.ALL)
     private List<ReceivingDetail> receivingDetails = new ArrayList<>();
+
+    public ReceivingNote() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
+
+    public List<ReceivingDetail> getReceivingDetails() {
+        return receivingDetails;
+    }
+
+    public void setReceivingDetails(List<ReceivingDetail> receivingDetails) {
+        this.receivingDetails = receivingDetails;
+    }
 }

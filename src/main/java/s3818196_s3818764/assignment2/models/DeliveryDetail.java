@@ -17,4 +17,39 @@ public class DeliveryDetail {
     @ManyToOne
     @JsonIgnore
     private DeliveryNote deliveryNote;
+
+    public DeliveryDetail() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
+    }
+
+    public DeliveryNote getDeliveryNote() {
+        return deliveryNote;
+    }
+
+    public void setDeliveryNote(DeliveryNote deliveryNote) {
+        this.deliveryNote = deliveryNote;
+    }
 }
