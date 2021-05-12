@@ -10,12 +10,10 @@ public class ReceivingDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
-    @JsonIgnore
+
     private Product product;
     private double quantity;
-    @ManyToOne
-    @JsonIgnore
-    private ReceivingNote receivingNote;
+
 
     public ReceivingDetail() {
     }
@@ -44,11 +42,5 @@ public class ReceivingDetail {
         this.quantity = quantity;
     }
 
-    public ReceivingNote getReceivingNote() {
-        return receivingNote;
-    }
 
-    public void setReceivingNote(ReceivingNote receivingNote) {
-        this.receivingNote = receivingNote;
-    }
 }

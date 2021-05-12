@@ -17,20 +17,8 @@ public class Product {
     private String company;
     private String description;
     @ManyToOne
-    @JsonIgnore
     private Category category;
 
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
-    private List<OrderDetail> orderDetails = new ArrayList<>();
-
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
-    private List<DeliveryDetail> deliveryDetails = new ArrayList<>();
-
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
-    private List<ReceivingDetail> receivingDetails = new ArrayList<>();
-
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
-    private List<SaleDetail> saleDetails = new ArrayList<>();
 
     private double price;
 
@@ -93,13 +81,6 @@ public class Product {
         this.category = category;
     }
 
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
-
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
-    }
     public double getPrice() {
         return price;
     }

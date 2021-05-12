@@ -13,16 +13,22 @@ public class ProductOrder {
     private int id;
     private String date;// dd-MM-YYYY
     @ManyToOne
-    @JsonIgnore
     private Staff staff;
 
     @ManyToOne
-    @JsonIgnore
     private Provider provider;
-    @OneToMany(mappedBy = "productOrder", cascade = CascadeType.ALL)
-    private List<OrderDetail> orderDetails = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<OrderDetail> details = new ArrayList<>();
     public ProductOrder() {
+    }
+
+    public List<OrderDetail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<OrderDetail> details) {
+        this.details = details;
     }
 
     public int getId() {
@@ -57,11 +63,5 @@ public class ProductOrder {
         this.provider = provider;
     }
 
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
 
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
-    }
 }

@@ -13,12 +13,19 @@ public class ReceivingNote {
     private int id;
     private String date;
     @ManyToOne
-    @JsonIgnore
     private Staff staff;
-    @OneToMany(mappedBy = "receivingNote", cascade = CascadeType.ALL)
-    private List<ReceivingDetail> receivingDetails = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ReceivingDetail> details = new ArrayList<>();
     public ReceivingNote() {
+    }
+
+    public List<ReceivingDetail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<ReceivingDetail> details) {
+        this.details = details;
     }
 
     public int getId() {
@@ -45,11 +52,5 @@ public class ReceivingNote {
         this.staff = staff;
     }
 
-    public List<ReceivingDetail> getReceivingDetails() {
-        return receivingDetails;
-    }
 
-    public void setReceivingDetails(List<ReceivingDetail> receivingDetails) {
-        this.receivingDetails = receivingDetails;
-    }
 }

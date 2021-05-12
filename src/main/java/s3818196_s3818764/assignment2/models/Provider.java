@@ -15,8 +15,7 @@ public class Provider {
     private String fax;
     private String email;
     private String contactPerson;
-    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
-    private List<ProductOrder> productOrders = new ArrayList<>();
+
 
 
     public Provider() {
@@ -78,11 +77,5 @@ public class Provider {
         this.contactPerson = contactPerson;
     }
 
-    public List<ProductOrder> getProductOrders() {
-        return productOrders;
-    }
 
-    public void setProductOrders(List<ProductOrder> productOrders) {
-        this.productOrders = productOrders;
-    }
 }

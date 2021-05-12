@@ -15,8 +15,7 @@ public class Customer {
     private String fax;
     private String email;
     private String contactPerson;
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<SaleInvoice> saleInvoices = new ArrayList<>();
+
 
     public Customer() {
     }
@@ -77,11 +76,4 @@ public class Customer {
         this.contactPerson = contactPerson;
     }
 
-    public List<SaleInvoice> getSaleInvoices() {
-        return saleInvoices;
-    }
-
-    public void setSaleInvoices(List<SaleInvoice> saleInvoices) {
-        this.saleInvoices = saleInvoices;
-    }
 }

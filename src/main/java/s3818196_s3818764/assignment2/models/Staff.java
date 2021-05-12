@@ -15,17 +15,6 @@ public class Staff {
     private String address;
     private String phone;
     private String email;
-    @OneToMany(mappedBy = "staff", cascade = CascadeType.ALL)
-    private List<ProductOrder> productOrders = new ArrayList<>();
-
-    @OneToMany(mappedBy = "staff", cascade = CascadeType.ALL)
-    private List<ReceivingNote> receivingNotes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "staff", cascade = CascadeType.ALL)
-    private List<DeliveryNote> deliveryNotes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "staff", cascade = CascadeType.ALL)
-    private List<SaleInvoice> saleInvoices = new ArrayList<>();
 
     public Staff() {
     }
@@ -70,35 +59,5 @@ public class Staff {
         this.email = email;
     }
 
-    public List<ProductOrder> getProductOrders() {
-        return productOrders;
-    }
 
-    public void setProductOrders(List<ProductOrder> productOrders) {
-        this.productOrders = productOrders;
-    }
-
-    public List<ReceivingNote> getReceivingNotes() {
-        return receivingNotes;
-    }
-
-    public void setReceivingNotes(List<ReceivingNote> receivingNotes) {
-        this.receivingNotes = receivingNotes;
-    }
-
-    public List<DeliveryNote> getDeliveryNotes() {
-        return deliveryNotes;
-    }
-
-    public void setDeliveryNotes(List<DeliveryNote> deliveryNotes) {
-        this.deliveryNotes = deliveryNotes;
-    }
-
-    public List<SaleInvoice> getSaleInvoices() {
-        return saleInvoices;
-    }
-
-    public void setSaleInvoices(List<SaleInvoice> saleInvoices) {
-        this.saleInvoices = saleInvoices;
-    }
 }

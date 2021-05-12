@@ -11,12 +11,9 @@ public class DeliveryDetail {
     private int id;
 
     @ManyToOne
-    @JsonIgnore
     private Product product;
     private double quantity;
-    @ManyToOne
-    @JsonIgnore
-    private DeliveryNote deliveryNote;
+
 
     public DeliveryDetail() {
     }
@@ -45,11 +42,5 @@ public class DeliveryDetail {
         this.quantity = quantity;
     }
 
-    public DeliveryNote getDeliveryNote() {
-        return deliveryNote;
-    }
 
-    public void setDeliveryNote(DeliveryNote deliveryNote) {
-        this.deliveryNote = deliveryNote;
-    }
 }

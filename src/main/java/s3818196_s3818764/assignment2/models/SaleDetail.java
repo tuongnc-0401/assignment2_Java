@@ -11,14 +11,11 @@ public class SaleDetail {
     private int id;
 
     @ManyToOne
-    @JsonIgnore
     private Product product;
     private double price;
     private double totalValue;
 
-    @ManyToOne
-    @JsonIgnore
-    private SaleInvoice saleInvoice;
+
 
     public SaleDetail() {
     }
@@ -55,11 +52,4 @@ public class SaleDetail {
         this.totalValue = totalValue;
     }
 
-    public SaleInvoice getSaleInvoice() {
-        return saleInvoice;
-    }
-
-    public void setSaleInvoice(SaleInvoice saleInvoice) {
-        this.saleInvoice = saleInvoice;
-    }
 }

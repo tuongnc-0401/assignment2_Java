@@ -14,12 +14,20 @@ public class DeliveryNote {
     private String date;
 
     @ManyToOne
-    @JsonIgnore
     private Staff staff;
-    @OneToMany(mappedBy = "deliveryNote", cascade = CascadeType.ALL)
-    private List<DeliveryDetail> deliveryDetails= new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<DeliveryDetail> details = new ArrayList<>();
 
     public DeliveryNote() {
+    }
+
+    public List<DeliveryDetail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<DeliveryDetail> details) {
+        this.details = details;
     }
 
     public int getId() {
@@ -46,11 +54,5 @@ public class DeliveryNote {
         this.staff = staff;
     }
 
-    public List<DeliveryDetail> getDeliveryDetails() {
-        return deliveryDetails;
-    }
 
-    public void setDeliveryDetails(List<DeliveryDetail> deliveryDetails) {
-        this.deliveryDetails = deliveryDetails;
-    }
 }

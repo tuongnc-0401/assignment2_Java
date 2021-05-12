@@ -14,15 +14,21 @@ public class SaleInvoice {
     private String date;
 
     @ManyToOne
-    @JsonIgnore
     private Staff staff;
     @ManyToOne
-    @JsonIgnore
     private Customer customer;
-    @OneToMany(mappedBy = "saleInvoice", cascade = CascadeType.ALL)
-    private List<SaleDetail> saleDetails = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<SaleDetail> details = new ArrayList<>();
 
     public SaleInvoice() {
+    }
+
+    public List<SaleDetail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<SaleDetail> details) {
+        this.details = details;
     }
 
     public int getId() {
@@ -57,11 +63,5 @@ public class SaleInvoice {
         this.customer = customer;
     }
 
-    public List<SaleDetail> getSaleDetails() {
-        return saleDetails;
-    }
 
-    public void setSaleDetails(List<SaleDetail> saleDetails) {
-        this.saleDetails = saleDetails;
-    }
 }

@@ -10,11 +10,8 @@ public class OrderDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
-    @JsonIgnore
     private Product product;
-    @ManyToOne
-    @JsonIgnore
-    private ProductOrder productOrder;
+
     private double quantity;
     private double price;
 
@@ -35,14 +32,6 @@ public class OrderDetail {
 
     public void setProduct(Product product) {
         this.product = product;
-    }
-
-    public ProductOrder getProductOrder() {
-        return productOrder;
-    }
-
-    public void setProductOrder(ProductOrder productOrder) {
-        this.productOrder = productOrder;
     }
 
     public double getQuantity() {
