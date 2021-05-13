@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import s3818196_s3818764.assignment2.models.DeliveryNote;
 import s3818196_s3818764.assignment2.models.Staff;
+import s3818196_s3818764.assignment2.services.DeliveryNoteService;
 import s3818196_s3818764.assignment2.services.StaffService;
 
 import java.util.List;
@@ -13,6 +15,8 @@ import java.util.List;
 public class StaffController {
     @Autowired
     private StaffService service;
+    @Autowired
+    private DeliveryNoteService deliveryNoteService;
     @GetMapping("/staff")
     public List<Staff> findAll(){
         return service.getAll();
@@ -62,6 +66,14 @@ public class StaffController {
     }
     @DeleteMapping("/staff/{id}")
     public void delete(@PathVariable int id){
-        service.delete(id);
+        if(deliveryNoteService.findAllDeliveryNoteByStaffId(id).size() ==0){
+            service.delete(id);
+        }else{
+            for (DeliveryNote r : deliveryNoteService.findAllDeliveryNoteByStaffId(id)){
+                deliveryNoteService.delete(r.getId());
+            }
+            service.delete(id);
+        }
+
     }
 }
